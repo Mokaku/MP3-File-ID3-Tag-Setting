@@ -12,17 +12,6 @@ cat <<__EOL__
 01.change
 02.愛してるが言えなくて
 03.願い
-04.がんばれ
-05.surrender
-06.Distance
-07.青 ~blue~
-08.answer
-09.Hello
-10.低温ロマンチスト
-11.キセキ
-12.I can
-13.HEART OF GOLD
-14.move! (IKKAKUSENKIN ver.)
 __EOL__
 } | awk -F . '
 BEGIN {
@@ -51,7 +40,7 @@ print "テキスト内容を表示しますテキスト内容を表示します.
 
 '
 
-eyeD3  -a "${ARTIST}" -A ${ALBUM} -Y ${YEAR} -N ${TRACKS} -G ${GANR} --remove-comments --set-encoding=utf8 --add-image=./cover.jpg:FRONT_COVER:"Front Cover Image" --set-user-text-frame="Release date":${RDATE} ./*.mp3
+eyeD3  -a "${ARTIST}" -A "${ALBUM}" -Y ${YEAR} -N ${TRACKS} -G ${GANR} --remove-comments --set-encoding=utf8 --add-image=./cover.jpg:FRONT_COVER:"Front Cover Image" --set-user-text-frame="Release date":${RDATE} ./*.mp3
 
 eyeD3 --rename=%n\ %t ./*.mp3
 

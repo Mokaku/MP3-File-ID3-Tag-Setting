@@ -1,0 +1,18 @@
+#!/usr/local/bin/perl
+use strict;
+use warnings;
+use Lyrics::Fetcher::LyricWiki;
+ 
+if (@ARGV != 2) {
+die "USAGE: lyrics [artist] [song]\n";
+}
+ 
+my $lyrics = Lyrics::Fetcher::LyricWiki->fetch(@ARGV);
+ 
+if (not defined $lyrics) {
+die sprintf "No results for artist %s, song %s\n", @ARGV;
+}
+ 
+print "$lyrics\n";
+ 
+__END__

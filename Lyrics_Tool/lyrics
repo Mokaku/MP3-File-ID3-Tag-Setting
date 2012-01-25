@@ -1,0 +1,12 @@
+#!/usr/bin/env perl
+use 5.14.2;
+use warnings;
+use Lyrics::Fetcher::LyricWiki;
+
+die "usage: lyrics ARTIST SONG\n" unless @ARGV == 2;
+@ARGV = map { join " ", map { ucfirst lc } split " " } @ARGV;
+my $lyrics = Lyrics::Fetcher::LyricWiki->fetch(@ARGV);
+die sprintf "No results for artist %s, song %s\n", @ARGV unless defined $lyrics;
+say $lyrics;
+
+__END__
